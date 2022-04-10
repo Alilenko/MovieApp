@@ -1,0 +1,40 @@
+@import "../../styles/variables.scss";
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  .content__row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 500px;
+    height: 550px;
+    padding: 0 20px;
+    .title {
+      color: #fff;
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 10px black;
+    }
+    .descr {
+      color: white;
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 5px black;
+    }
+    .buttons {
+      display: flex;
+    }
+  }
+}
+.fade__bottom {
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 100px;
+  bottom: 0;
+
+  background: linear-gradient(transparent, $background);
+}

@@ -1,0 +1,28 @@
+.form__row {
+  min-width: 20%;
+  max-width: 400px;
+  max-height: 500px;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  padding: 30px;
+  .form__name {
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
+    align-self: flex-start;
+    margin-bottom: 10px;
+  }
+  .form__text {
+    color: rgb(65, 64, 64);
+    margin: 10px auto;
+    .form__link {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+  }
+}
