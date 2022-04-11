@@ -6,6 +6,14 @@ const useMovie = () => {
     const _apiBase = 'https://api.themoviedb.org/3/';
     const _apiKey = 'fc8e2d1960c121dad3dc28111ab37212';
 
+    const getSearchRequest = async (search) => {
+        const res = await request(`${_apiBase}search/movie?api_key=${_apiKey}&query=${search}`);
+        return res.results;
+    };
+    const getMovieById = async (id) => {
+        const res = await request(`${_apiBase}movie/${id}?api_key=${_apiKey}`);
+        return res;
+    };
     const getTranding = async () => {
         const res = await request(`${_apiBase}trending/all/week?api_key=${_apiKey}`);
         return res.results;
@@ -40,6 +48,8 @@ const useMovie = () => {
     }
 
     return {
+        getSearchRequest,
+        getMovieById,
         getTranding, 
         getNetflixOriginal, 
         getTopRated, 

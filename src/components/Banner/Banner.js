@@ -1,12 +1,15 @@
 import React, {useEffect, useState} from 'react'
 import useMovie from '../../app/services/useMovie';
+import { useNavigate } from 'react-router';
 import Button from '../reusable components/Button';
 import './banner.scss';
 import { IoCaretForwardCircle, IoInformationCircleOutline } from "react-icons/io5";
 
+
 const Banner = () => {
     const {getTranding, fetchTranding} = useMovie()
     const [movie, setMovie] = useState([])
+    const navigate = useNavigate()
   
     useEffect(() => {
       getTranding()
@@ -15,6 +18,12 @@ const Banner = () => {
 
     function transcate(string, n){
         return string?.length > n ? string.substr(0, n-1) + '...' : string
+    }
+    const watchClick = () => {
+
+    }
+    const moreInfoClick = () => {
+      navigate(`/movies/${movie?.id}`)
     }
 
   return (
@@ -30,8 +39,8 @@ const Banner = () => {
             <div className='title'>{movie?.name || movie?.title}</div>
             <div className='descr'>{transcate(movie?.overview, 150)}</div>
             <div className='buttons'>
-                <Button primary={true} name='To watch' icon={<IoCaretForwardCircle style={{ fontSize: 28, paddingRight: 5}}/>} />
-                <Button name='More details' icon={<IoInformationCircleOutline style={{ fontSize: 28, paddingRight: 5}}/>}/>
+                <Button onClick={watchClick} primary={true} name='To watch' icon={<IoCaretForwardCircle style={{ fontSize: 28, paddingRight: 5}}/>} />
+                <Button onClick={moreInfoClick} name='More details' icon={<IoInformationCircleOutline style={{ fontSize: 28, paddingRight: 5}}/>}/>
             </div>
         </div>
         </div>

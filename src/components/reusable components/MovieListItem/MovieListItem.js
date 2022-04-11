@@ -1,12 +1,14 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom'
+import { useNavigate } from 'react-router';
 import './MovieListItem.scss'
 import notFound from '../../../assets/not-found.jpeg'
 
 const MovieListItem = ({movie}) => {
+  const navigate = useNavigate()
 
     return (
-    <div className='item'>
+    <div onClick={() => navigate(`/movies/${movie?.id}`)} className='item'>
        <img 
         className='image' 
         alt={movie?.name || movie?.title} 
