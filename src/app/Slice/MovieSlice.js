@@ -2,6 +2,8 @@ import {createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
     moviesData: [],
+    activeMovie: [],
+    searchList: [],
     loading: false,
     error: false
 }
@@ -15,11 +17,14 @@ const movieSlice = createSlice({
         },
         moviesFetched: (state, action) => {
             state.loading = false
-            state.moviesData = action.payload
+            state.moviesData = [...state.moviesData, action.payload]
         }, 
         moviesError: (state) => {
             state.loading = false
             state.error = true
+        },
+        changeSearchList: (state, action) => {
+            state.searchList = action.payload
         }
     }
 })
@@ -28,5 +33,6 @@ export default reducer;
 export const {
     moviesFetching,
     moviesFetched,
-    moviesError
+    moviesError,
+    changeSearchList
 } = actions;

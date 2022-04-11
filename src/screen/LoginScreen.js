@@ -11,14 +11,9 @@ const LoginScreen = () => {
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(false)
     let navigate = useNavigate();
     const {currentUser} = useSelector(state => state.currentUser)
-
-    useEffect(()=> {
-        if(currentUser){
-          navigate('/')
-        }
-    },[currentUser])
 
     const singIn = async () => {
         setLoading(true)
@@ -29,7 +24,7 @@ const LoginScreen = () => {
             navigate('/')
             setLoading(false)
         })
-        .catch(console.error)
+        .catch((err) => setError(true))
         setLoading(false)
       }
 
@@ -50,7 +45,9 @@ const LoginScreen = () => {
             login={login}
             setLogin={setLogin}
             password={password}
-            setPassword={setPassword}/>
+            setPassword={setPassword}
+            error={error}
+            setError={setError}/>
             </div>
         </div>
     </div>

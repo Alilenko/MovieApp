@@ -26,10 +26,10 @@ align-items: center;
 `;
 
 
-const Button = ({name, primary, icon}) => {
+const Button = ({name, primary, icon, onClick}) => {
 
   return (
-    <ButtonStyle primary={primary}>
+    <ButtonStyle onClick={onClick} primary={primary}>
         {icon }
         {name}</ButtonStyle>
   )

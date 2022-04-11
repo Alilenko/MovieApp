@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import { Link } from "react-router-dom";
 import './Nav.scss'
 import logo from '../../assets/logo.svg'
-import { IoPeopleCircleOutline, IoReorderThreeOutline } from "react-icons/io5";
+import { IoPeopleCircleOutline, IoReorderThreeOutline, IoSearch } from "react-icons/io5";
 import { useNavigate } from 'react-router';
 
 const Nav = () => {
@@ -27,7 +27,7 @@ const Nav = () => {
         <div className='container'>
             <div className='nav'>
                 <div className='menu__burger' onClick={() => setMenuOpen(!menuOpen)}>
-                    <IoReorderThreeOutline size={48} color={'#fff'} onClick={() => navigate('/')}/>
+                    <IoReorderThreeOutline size={48} color={'#fff'} />
                 </div>
                 <img className='nav__img' src={logo}/>
                 <div className={menuOpen && window.innerWidth <= 767 ? 'content_show': 'content'}>
@@ -35,6 +35,7 @@ const Nav = () => {
                     <Link className='nav__link' to='/series'>Series</Link>
                     <Link className='nav__link' to='/movies'>Movies</Link>
                 </div>
+                <IoSearch onClick={() => navigate('/search')} size={28} color={'#fff'} style={{fontWeight: 500, opacity: .7, paddingRight: 10}}/>
                 <IoPeopleCircleOutline size={48} color={'#fff'} onClick={() => navigate('/profile')}/>
             </div>
         </div>

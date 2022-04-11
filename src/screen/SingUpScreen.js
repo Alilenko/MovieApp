@@ -10,6 +10,7 @@ const SingUpScreen = () => {
     const [login, setLogin] = useState('')
     const [password, setPassword] = useState('')
     const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(false)
     const [audit, setAudit] = useState('')
 
     let navigate = useNavigate();
@@ -25,7 +26,7 @@ const SingUpScreen = () => {
           navigate('/')
           setLoading(false)
       })
-      .catch(console.error)
+      .catch((err) => setError(true))
       setLoading(false)
         }
         
@@ -49,6 +50,8 @@ const SingUpScreen = () => {
                 setLogin={setLogin}
                 password={password}
                 setPassword={setPassword}
+                error={error}
+                setError={setError}
                 audit={audit}
                 setAudit={setAudit}
                 verify={true}/>

@@ -19,8 +19,8 @@ const MovieList = ({title, fetchUrl}) => {
     useEffect(() => {
         dispatch(moviesFetching())
         fetchUrl()
-        .then(res => setMovies(res))
-        .then(res => dispatch(moviesFetched(res)))
+        .then(res => dispatch(moviesFetched(res), setMovies(res)))
+        .then()
       },[])
 
     useEffect(() => {
@@ -40,7 +40,7 @@ const MovieList = ({title, fetchUrl}) => {
            slidesPerGroup={5}
            navigation
     >
-        {movies.map(item => (
+        {movies?.map(item => (
             <SwiperSlide className='slide__item' key={item.id}>
                 <MovieListItem  movie={item}/>
             </SwiperSlide>     
