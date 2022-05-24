@@ -1,0 +1,14 @@
+@import "../../styles/variables.scss";
+
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 60px 10px 10px 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .slide__item {
+    max-width: 150px;
+    margin: 1rem;
+  }
+}

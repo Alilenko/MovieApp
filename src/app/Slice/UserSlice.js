@@ -1,20 +1,18 @@
-import {createSlice} from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    currentUser: [],
-}
+  currentUser: [],
+};
 
 const movieSlice = createSlice({
-    name: 'currentUser',
-    initialState,
-    reducers:{
-        getCurrentUser: (state, action) => {
-            state.currentUser = action.payload
-        },
-    }
-})
-const {actions, reducer} = movieSlice;
+  name: "currentUser",
+  initialState,
+  reducers: {
+    getCurrentUser: (state, action) => {
+      state.currentUser = action.payload;
+    },
+  },
+});
+const { actions, reducer } = movieSlice;
 export default reducer;
-export const {
-    getCurrentUser
-} = actions;
+export const { getCurrentUser } = actions;
