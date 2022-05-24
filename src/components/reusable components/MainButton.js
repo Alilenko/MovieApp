@@ -16,12 +16,15 @@ align-items: center;
     &:hover{
         background-color: rgb(108 3 3); 
     }
+    &:disabled{
+      background-color: rgb(108 3 3)
+    }
 `;
 
-const MainButton = ({name, onSubmit}) => {
+const MainButton = ({name, onSubmit, disabled}) => {
 
   return (
-    <ButtonStyle onClick={onSubmit}>{name}</ButtonStyle>
+    <ButtonStyle disabled={disabled} onClick={onSubmit}>{name}</ButtonStyle>
   )
 }
 
